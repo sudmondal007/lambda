@@ -37,10 +37,10 @@ def lambda_handler(event, context):
     uncompressed_payload = gzip.decompress(compressed_payload)
 
     # convert the payload to JSON
-    payload = json.loads(uncompressed_payload)
+    json_payload = json.loads(uncompressed_payload)
 
     # some debug statements
-    log_events = payload['logEvents']
+    log_events = json_payload['logEvents']
     for log_event in log_events:
         print(f'LogEvent: {log_event}')
 
