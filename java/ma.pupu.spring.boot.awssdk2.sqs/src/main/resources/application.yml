@@ -1,0 +1,9 @@
+#spring:
+#  application:
+#    name: mapupus3
+#  cloud:
+#    aws:
+#      parameter-store:
+#        enabled: true
+#        prefix: /config/mapupus3
+#        default-context: application
