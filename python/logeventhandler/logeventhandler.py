@@ -1,13 +1,12 @@
 import json
 import gzip
-import json
 import base64
 import gzip
 import os
 import sys
 # import subprocess
 
-
+# uncomment for installing the packages directly from lambda
 #subprocess.call('pip install requests -t /tmp/ --no-cache-dir'.split())
 sys.path.insert(1, '/var/task/logeventhandler/package/')
 import requests
@@ -16,42 +15,46 @@ import requests
 def lambda_handler(event, context):
     # Log the entire event for debugging
     print("Received event:")
-    print(event)
-
-    print(f'Logging Event: {event}')
+    print(f"Logging event: {event}")
     print(f"Awslog: {event['awslogs']}")
     cw_data = event['awslogs']['data']
     print(f'data: {cw_data}')
     print(f'type: {type(cw_data)}')
+
+    # replace with respective Splunk HEC URL
+    splunk_hec_url = os.environment.get('splunk_hec_url')
+
+    # replace with respective Splunk token
+    splunk_token = os.environment.get('splunk_token')
+
+    # replace with respective Splunk index
+    splunk_index = os.environment.get('splunk_index')
+
+    # retrieve compressed payload from the event
     compressed_payload = base64.b64decode(cw_data)
+
+    # extract uncompressed payload
     uncompressed_payload = gzip.decompress(compressed_payload)
+
+    # convert the payload to JSON
     payload = json.loads(uncompressed_payload)
 
-    splunk_hec_url = os.environ.get('splunk_hec_url')
-
+    # some debug statements
     log_events = payload['logEvents']
     for log_event in log_events:
         print(f'LogEvent: {log_event}')
 
-    response = requests.post("https//www.google.com", headers={'Autorization: adasd'}, json="")
+    # splunk payload
+    splunk_payload = {
+        "event" : json_payload,
+        "index" : splunk_index
+    }
 
+    # splunk headers
+    splunk_headers = {'Authorization' : f'Splunk {splunk_token}', 'Content-Type': 'application/json'}
 
-    # Extract relevant information from the log event
-    # log_events = event['awslogs']['data']
-    # decoded_events = boto3.client('logs').decode_log_stream(
-    #     logGroupName=event['awslogs']['logGroup'],
-    #     logStreamName=event['awslogs']['logStream'],
-    #     logStreamToken=event['awslogs']['logStreamToken']
-    # )
-
-    # for log_event in decoded_events['Events']:
-    #     message = log_event['message']
-    #     # Process the log message as needed
-    #     print(f"Processing log message: {message}")
-
-    # return {
-    #     'statusCode': 200,
-    #     'body': 'Log event processed successfully!'
-    # }
+    response = requests.post(splunk_hec_url, headers=splunk_headers, json=splunk_payload)
+    response.close()
+    print(f"Log sent to Splunk. Response: {response.text}")
 
 
