@@ -1,0 +1,4 @@
+handler=ma.pupu.sha.sqs.handler.SQSEventHandler
+
+environment variable
+FUNCTION_NAME=s3EventHandler

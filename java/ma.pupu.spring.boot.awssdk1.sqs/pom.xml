@@ -10,12 +10,12 @@
 		<relativePath />
 	</parent>
 
-	<groupId>ma.pupu.spring.boot.awssdk1.s3</groupId>
-	<artifactId>ma.pupu.spring.boot.awssdk1.s3</artifactId>
+	<groupId>ma.pupu.spring.boot.awssdk1.sqs</groupId>
+	<artifactId>ma.pupu.spring.boot.awssdk1.sqs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>ma.pupu.spring.boot.awssdk1.s3</name>
+	<name>ma.pupu.spring.boot.awssdk1.sqs</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -42,11 +42,6 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-function-adapter-aws</artifactId>
 			<version>${spring-cloud-function-version}</version>
-		</dependency>
-		<dependency>
-		    <groupId>com.amazonaws</groupId>
-		    <artifactId>aws-java-sdk-s3</artifactId>
-		    <version>${aws-java-sdk-version}</version>
 		</dependency>
 		<dependency>
 		    <groupId>com.amazonaws</groupId>
@@ -216,4 +211,6 @@
 			</build>
 		</profile>
 	</profiles>
+	
+	
 </project>

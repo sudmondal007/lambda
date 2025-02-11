@@ -1,9 +1,9 @@
 package ma.pupu.sha.s3.handler;
 
-import java.util.Map;
-
 import org.springframework.cloud.function.adapter.aws.SpringBootRequestHandler;
 
-public class S3EventHandler extends SpringBootRequestHandler<Map<String, String>, Void> {
+import com.amazonaws.services.lambda.runtime.events.S3Event;
+
+public class S3EventHandler extends SpringBootRequestHandler<S3Event, Void> {
 	//no additional logic needed
 }
