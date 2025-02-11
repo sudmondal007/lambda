@@ -16,7 +16,6 @@
 	<packaging>jar</packaging>
 
 	<name>ma.pupu.spring.boot.awssdk2.s3</name>
-	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
