@@ -10,7 +10,7 @@
 		<relativePath />
 	</parent>
 
-	<groupId>ma.pupu.spring.boot.awssdk2.sqs</groupId>
+	<groupId>ma.pupu.spring.boot.awssdk2</groupId>
 	<artifactId>ma.pupu.spring.boot.awssdk2.sqs</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>

@@ -10,32 +10,21 @@
 		<relativePath />
 	</parent>
 
-	<groupId>ma.pupu.spring.boot.awssdk2.s3</groupId>
-	<artifactId>ma.pupu.spring.boot.awssdk2.s3</artifactId>
+	<groupId>ma.pupu.spring.boot.awssdk1</groupId>
+	<artifactId>ma.pupu.spring.boot.awssdk1.s3.getobject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>ma.pupu.spring.boot.awssdk2.s3</name>
+	<name>ma.pupu.spring.boot.awssdk1.s3.getobject</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.cloud.version>3.0.0-RC1</spring.cloud.version>
-		<spring-cloud-function-version>4.2.1</spring-cloud-function-version>
+		<spring-cloud-function-version>3.1.4</spring-cloud-function-version>
 		<aws-lambda-java-events-version>3.11.5</aws-lambda-java-events-version>
+		<aws-java-sdk-version>1.12.780</aws-java-sdk-version>
+		<aws-java-lambda-version>1.2.3</aws-java-lambda-version>
 	</properties>
 	
-	 <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>software.amazon.awssdk</groupId>
-                <artifactId>bom</artifactId>
-                <version>2.30.7</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -49,61 +38,31 @@
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
-		<!--<dependency>
-		    <groupId>org.springframework.cloud</groupId>
-		    <artifactId>spring-cloud-starter-aws-parameter-store-config</artifactId>
-		    <version>2.2.6.RELEASE</version>
-		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-function-adapter-aws</artifactId>
 			<version>${spring-cloud-function-version}</version>
 		</dependency>
-		<!--<dependency>
-		    <groupId>software.amazon.awssdk</groupId>
-		    <artifactId>ssm</artifactId>
-		</dependency>-->
 		<dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>s3</artifactId>
-            <exclusions>
-            	<exclusion>
-            		<groupId>software.amazon.awssdk</groupId>
-            		<artifactId>netty-nio-client</artifactId>
-            	</exclusion>
-            	<exclusion>
-            		<groupId>com.fasterxml.jackson.core</groupId>
-            		<artifactId>jackson-databind</artifactId>
-            	</exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>sqs</artifactId>
-            <exclusions>
-            	<exclusion>
-            		<groupId>software.amazon.awssdk</groupId>
-            		<artifactId>netty-nio-client</artifactId>
-            	</exclusion>
-            	<exclusion>
-            		<groupId>com.fasterxml.jackson.core</groupId>
-            		<artifactId>jackson-databind</artifactId>
-            	</exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>lambda</artifactId>
-        </dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-s3</artifactId>
+		    <version>${aws-java-sdk-version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-java-sdk-sqs</artifactId>
+		    <version>${aws-java-sdk-version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>com.amazonaws</groupId>
+		    <artifactId>aws-lambda-java-core</artifactId>
+		    <version>${aws-java-lambda-version}</version>
+		</dependency>
         <dependency>
 			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-lambda-java-events</artifactId>
 			<version>${aws-lambda-java-events-version}</version>
 		</dependency>
-        <dependency>
-            <groupId>software.amazon.awssdk</groupId>
-            <artifactId>s3-event-notifications</artifactId>
-        </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -116,14 +75,6 @@
 	    	<groupId>org.apache.httpcomponents</groupId>
 	      	<artifactId>httpclient</artifactId>
 	    </dependency>
-        <!--<dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-        </dependency>-->
-        <!--<dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-        </dependency>-->
 	</dependencies>
 	
 	<profiles>
@@ -265,6 +216,4 @@
 			</build>
 		</profile>
 	</profiles>
-	
-	
 </project>

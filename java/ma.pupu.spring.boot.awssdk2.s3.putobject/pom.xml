@@ -10,12 +10,12 @@
 		<relativePath />
 	</parent>
 
-	<groupId>ma.pupu.spring.boot.awssdk2.s3</groupId>
-	<artifactId>ma.pupu.spring.boot.awssdk2.s3.crossaccount</artifactId>
+	<groupId>ma.pupu.spring.boot.awssdk2</groupId>
+	<artifactId>ma.pupu.spring.boot.awssdk2.s3.putobject</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>ma.pupu.spring.boot.awssdk2.s3.crossaccount</name>
+	<name>ma.pupu.spring.boot.awssdk2.s3.putobject</name>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
