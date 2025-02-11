@@ -10,12 +10,12 @@
 		<relativePath />
 	</parent>
 
-	<groupId>ma.pupu.spring.boot.awssdk2.s3</groupId>
-	<artifactId>ma.pupu.spring.boot.awssdk2.s3</artifactId>
+	<groupId>ma.pupu.spring.boot.awssdk1.s3</groupId>
+	<artifactId>ma.pupu.spring.boot.awssdk1.s3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>ma.pupu.spring.boot.awssdk2.s3</name>
+	<name>ma.pupu.spring.boot.awssdk1.s3</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
